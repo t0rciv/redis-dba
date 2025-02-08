@@ -8,15 +8,15 @@ async function sendEmail(request, reply){
     } = request.body
 
     const template = `
-        Olá ${firstName} ${lastName}, sua assinatura foi confirmada!
-        Para acessar seus recursos exclusivos você precisa basta clicar aqui.
+        Hello ${firstName} ${lastName}, your subscription has been confirmed!
+        To access its exclusive resources you just need to click here.
     `
-
+    
     try {
         await MailQueue.add({
             to: email,
             from: process.env.EMAIL_FROM,
-            subject: "Assinatura Confirmada",
+            subject: "Subscription Confirmed",
             text: template
         })
         return reply.code(200).send();

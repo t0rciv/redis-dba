@@ -9,6 +9,7 @@ const corsOptions = {
     credentials: true,
     origin:  /localhost\:5173/,
 }
+
 server.register(cors, corsOptions);
 server.register(formBody);
 
